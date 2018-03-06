@@ -1,37 +1,21 @@
 let total = 0
-
-function Day(){
-  this.day = 1;
-  this.month = 1;
-  this.year = 1900;
-  this.count = 1 //for days of the week
-}
-
-let myDay = new Day()
+let count = 1
 
 //year loop
-for(let y = myDay.year; y<2001; y++){
-  //reset to january 1st
-  myDay.year = y
-  myDay.month = 1
-  myDay.day = 1
+for(let y = 1900; y<2001; y++){
   //month loop
-  for(m = myDay.month; m<=12; m++){
-    //reset to first of current month
-    myDay.month = m
-    myDay.day = 1
-
-    for(d = myDay.day; d <= maxDateOfMonth(m, y); d++){
+  for(m = 1; m<=12; m++){
+    //day loop
+    for(d = 1; d <= maxDateOfMonth(m, y); d++){
 
       //add one day of the week
-      let currentDay = dayOfTheWeek(myDay.count)
+      let currentDay = dayOfTheWeek(count)
 
       if(d==1 && currentDay=="Sn" && y>1900){
         // console.log(m +"/"+d+"/"+y+" "+currentDay)
-
         total++
       }
-      myDay.count++
+      count++
     }
   }
 }
